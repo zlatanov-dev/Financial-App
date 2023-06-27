@@ -7,9 +7,8 @@ loadType(mongoose);
 const TransactionSchema = new Schema(
   {
     buyer: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: String,
+      required: true,
     },
     amount: {
       type: mongoose.Types.Currency,
@@ -28,4 +27,4 @@ const TransactionSchema = new Schema(
 
 const Transaction = mongoose.model("Transaction", TransactionSchema);
 
-export default Product;
+export default Transaction;
