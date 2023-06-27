@@ -3,7 +3,6 @@ import { loadType } from "mongoose-currency";
 
 const Schema = mongoose.Schema;
 loadType(mongoose);
-
 const daySchema = new Schema(
   {
     date: String,
@@ -65,8 +64,8 @@ const KPISchema = new Schema(
       currency: "USD",
       get: (v) => v / 100,
     },
-    expenseByCategory: {
-      Type: Map,
+    expensesByCategory: {
+      type: Map,
       of: {
         type: mongoose.Types.Currency,
         currency: "USD",
