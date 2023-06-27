@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GetKpisResponse } from "./types";
+import { GetKpisResponse, GetProductsResponse } from "./types";
 
 
 export const api = createApi({
@@ -11,8 +11,11 @@ export const api = createApi({
         query: () => "kpi/kpis/",
         providesTags: ["Kpis"],
       }),
-      
+      getProducts: build.query<Array<GetProductsResponse>, void>({
+        query: () => "product/products/",
+        providesTags: ["Products"],
+      }),
     }),
   });
   
-export const { useGetKpisQuery } = api;
+export const { useGetKpisQuery, useGetProductsQuery } = api;
